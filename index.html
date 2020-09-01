@@ -1,0 +1,161 @@
+<html>
+<head>
+  <style>
+    body{
+      background-color: #FFC0CB;
+    }
+    .button2{
+      position: absolute;
+      top: 35.3%;
+      left: 6.9%;
+    }
+    .heading{
+      font-family: "Lucida Console";
+    }
+  </style>
+  <div class="heading">
+    <h2>ADD NEW EMPLOYEE</h2>
+  </div>  
+<script>
+    function reset() {
+  document.getElementById("myForm").reset();
+}
+    function validateForm()
+{
+var eid = document.myForm.eid;
+var ename = document.myForm.ename;
+var qual = document.myForm.qual;
+var sal = document.myForm.sal;
+
+
+if(allnumeric(eid))
+{
+if(allLetter(ename))
+{ 
+
+if(alphanumeric(qual))
+{
+if(allnumeric1(sal))
+{
+    Redirect();
+} 
+}
+} 
+}
+
+
+return false;
+}
+function Redirect() {
+               window.location = "congrats.html";
+            }
+function allLetter(ename)
+{ 
+var letters = /^[A-Za-z]+$/;
+if(ename.value.match(letters))
+{
+return true;
+}
+else
+{
+alert(' The employee name must only contain alphabets');
+ename.focus();
+return false;
+}
+}
+function alphanumeric(qual)
+{ 
+var letters = /^[0-9a-zA-Z]+$/;
+if(qual.value.match(letters))
+{
+return true;
+}
+else
+{
+alert('Qualification must contain only alphanumeric characters');
+uadd.focus();
+return false;
+}
+}
+function allnumeric(eid)
+{ 
+var numbers = /^[0-9]+$/;
+if(eid.value.match(numbers))
+{
+return true;
+}
+else
+{
+alert('employee id must contain only numeric characters');
+eid.focus();
+return false;
+}
+}
+function allnumeric1(sal)
+{ 
+var numbers = /^[0-9]+$/;
+if(sal.value.match(numbers))
+{
+return true;
+}
+else
+{
+alert('salary field must contain only numeric characters');
+sal.focus();
+return false;
+}
+}
+</script>
+</head>
+<body>
+
+<form name='myForm'  onsubmit="return validateForm();" >
+    <label for="eid">Employee ID:</label>&nbsp;
+    <input type="text" id="eid" name="eid" >&nbsp;<br><br>
+    
+  
+  
+  
+  
+  
+    <label for="ename">Employee name:</label>&nbsp;
+    <input type="text" id="ename" name="ename" >&nbsp;<br><br>
+  
+  
+  
+      <label for="qual">Qualification</label>&nbsp;
+      <input type="text" id="qual" name="qual" >&nbsp;<br><br>
+    
+  
+    
+  
+    
+  
+    
+      <label for="des">Designation:</label>&nbsp;
+      <select id="des" name="des">&nbsp;
+        <option value="Sales Boy">Sales Boy</option>
+        <option value="Sales Manager">Sales Manager</option>
+        <option value="Software Engineer">Software Engineer</option>
+        <option value="Content Writer">Content Writer</option>
+      </select>&nbsp;<br><br>
+     
+  
+  
+    
+  
+    
+      <label for="sal">Salary</label>&nbsp;
+      <input type="text" id="sal" name="sal" >&nbsp;<br><br>
+    
+  <div class="button1">
+    <button type="submit" onSubmit="return validateForm()">Add Record</button>
+    </form>
+    </div>
+  <div class="button2">
+    <form name='Form'  onsubmit="return reset();" >
+        <button type="submit" onSubmit="return reset()">Exit</button>
+    </form>
+  </div>    
+    </body>
+</html>
